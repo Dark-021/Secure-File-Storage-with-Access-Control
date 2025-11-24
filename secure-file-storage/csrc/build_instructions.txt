@@ -1,0 +1,5 @@
+Open MSYS2 MinGW 64-bit shell, cd to csrc:
+gcc -shared -o bloom.dll bloom.c
+gcc -shared -o trie.dll trie.c
+
+This creates bloom.dll and trie.dll to be used by Python ctypes.

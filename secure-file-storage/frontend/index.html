@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secure File Store — Demo</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background-color: #0f1117;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #1b1e27;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      width: 400px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00bcd4;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #333;
+      background: #242830;
+      color: #fff;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0198a6;
+    }
+
+    .section {
+      margin-top: 20px;
+      border-top: 1px solid #333;
+      padding-top: 15px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      color: #9ad1d4;
+    }
+
+    ul li {
+      margin: 5px 0;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🔐 Secure File Storage</h1>
+
+    <label>User:</label>
+    <input type="text" id="user" value="Zaid Hussain" />
+
+    <label>Choose File:</label>
+    <input type="file" id="fileInput" />
+
+    <label>Filename:</label>
+    <input type="text" id="filename" />
+
+    <label>Sensitivity:</label>
+    <input type="number" id="sensitivity" value="1" min="1" max="10" />
+
+    <button onclick="createFile()">Create + Upload</button>
+
+    <div class="section">
+      <h3>🔍 Search filenames</h3>
+      <input type="text" id="search" placeholder="Enter filename" />
+      <button onclick="searchFiles()">Search</button>
+      <ul id="results"></ul>
+    </div>
+
+    <div class="section">
+      <h3>⬇️ Download</h3>
+      <input type="text" id="fileid" placeholder="Enter file id" />
+      <button onclick="downloadFile()">Download</button>
+    </div>
+
+    <div class="footer">
+      Secure File Storage System — Powered by Flask, MongoDB & MinIO
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
