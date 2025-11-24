@@ -1,2 +1,54 @@
 # Secure-File-Storage-with-Access-Control
 Secure File Storage with Access Control
+STEP 1 — Activate virtual environment
+
+You need to enable Python’s virtual environment each time you start fresh.
+If PowerShell gives you the “execution policy” error again, just run this once in that session:
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+Then activate the venv:
+
+.\venv\Scripts\Activate.ps1
+✅ You should see (venv) appear at the start of your command prompt.
+
+🟢 STEP 2 — Start MongoDB
+
+If MongoDB is installed as a Windows Service, start it with:
+net start MongoDB
+If you installed it manually (no service), you can start it from its install directory like:
+
+"C:\Program Files\MongoDB\Server\7.0\bin\mongod.exe"
+Leave that running in the background (it’s your database).
+
+🟢 STEP 3 — Start MinIO (for file storage)
+
+Open another PowerShell window and run:
+cd C:\minio
+.\minio.exe server C:\minio\data --console-address ":9001"
+
+
+✅ You should see:
+
+API: http://127.0.0.1:9000
+Console: http://127.0.0.1:9001
+
+Keep this window open.
+
+🟢 STEP 4 — Run your Flask backend
+
+Back in your first terminal (with venv active):
+(venv) C:\Users\zaid\projects\secure-file-storage\server> python app.py
+
+
+✅ You should see something like:
+
+ * Running on http://127.0.0.1:5000/
+Keep this running too — it’s your backend API.
+
+🟢 STEP 5 — Open your frontend
+
+Now open your web browser (e.g., Brave, Chrome, Edge) and go to:
+http://127.0.0.1:5000/
+You should see your styled “Secure File Store” interface.
+
+🟢 STEP 6 — Test the functionality
